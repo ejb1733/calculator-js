@@ -28,6 +28,11 @@ let displayValue = "";
     }
 
 DIGITS[9].addEventListener('click', () => {
+    if (operatorSelected) {
+        operatorSelected = false;
+        displayValue = '';
+        displayValues();
+    }
     displayValue += 0;
     displayValues();
 })
@@ -35,6 +40,7 @@ DIGITS[9].addEventListener('click', () => {
 OPERATORS.forEach(element => {
     element.addEventListener('click', () => {
         if (!keepGoing) {
+            keepGoing = true;
             operatorSelected = true;
             number1 = displayValue;
             operator = element.innerText;
@@ -42,21 +48,25 @@ OPERATORS.forEach(element => {
             operatorSelected = true;
             let number2 = displayValue;
             let result = operate(operator, number1, number2).toString();
+            console.log(operate(operator, number1, number2));
             number1 = result;
             displayValue = result;
             displayValues();
             console.log(result);
+            operator = element.innerText;
         }
     })
 });
 
 CLEAR.addEventListener('click', () => {
     operatorSelected = false;
-    displayValue = "";
+    displayValue = '';
     displayValues();
 });
 
 EQUALS.addEventListener('click', () => {
+    keepGoing = false;
+    operatorSelected = false;
     doOperation();
 });
 
@@ -64,7 +74,6 @@ function doOperation() {
     operatorSelected = false;
     let number2 = displayValue;
     console.log(number1, operator, number2);
-    console.log(operate(operator, number1, number2));
     let result = operate(operator, number1, number2).toString();
     displayValue = result;
     number1 = result;
