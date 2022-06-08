@@ -59,8 +59,11 @@ OPERATORS.forEach(element => {
 });
 
 CLEAR.addEventListener('click', () => {
+    number1 = '';
+    number2 = '';
+    keepGoing = false;
     operatorSelected = false;
-    displayValue = '';
+    displayValue = '0';
     displayValues();
 });
 

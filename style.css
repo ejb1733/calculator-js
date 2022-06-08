@@ -2,14 +2,16 @@
     border: 5px solid gray;
     border-radius: 5%;
     height: 90px;
-    width: 400px;
+    width: 386px;
     color: white;
+    padding: 8px;
 }
 
 body {
     display: flex;
     justify-content: center;
     background-color: #000000;
+    font-size: 36px;
 }
 
 #calculator {
@@ -22,6 +24,7 @@ body {
     height: 542px;
     border: 4px solid white;
     border-radius: 1%;
+    text-align: right;
 }
 
 #btns {
